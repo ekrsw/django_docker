@@ -1,17 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>Sign up</h2>
-<form method="post">
-    {% csrf_token %}
-    {% for field in form %}
-    <div>
-        {{ field.label_tag }}<br>
-        {{ field }}
-    </div>
-    {% for error in field.errors %}
-    <p style="color:red">{{ error }}</p>
-    {% endfor %}
-    {% endfor %}
-    <input type="submit" values="Sign up">
-</form>
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<div class="formContainer">
+    <form method="post">
+        {% csrf_token %}
+        <h1>サインナップ</h1>
+        <hr />
+        <div class="uiForm">
+            {% for field in form %}
+            <div class="formField">
+                {{ field.label_tag}}
+                {{ field }}
+            </div>
+            {% for error in field.errors %}
+            <p style="color:red">{{ error }}</p>
+            {% endfor %}
+            {% endfor %}
+            <button class="submitButton">サインナップ</button>
+        </div>
+    </form>
+</div>
 {% endblock %}
