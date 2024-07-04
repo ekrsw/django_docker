@@ -29,4 +29,6 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    env_file:
+      - .env
     command: sh /app/entrypoint.sh
