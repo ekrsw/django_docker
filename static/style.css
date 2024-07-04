@@ -40,4 +40,32 @@ h1 {
 .formField input {
     border: 1px solid grey;
     padding: 10px;
+    border-radius: 4px;
+}
+
+.formField input:focus {
+    outline: none;
+}
+
+.formField label {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+button {
+    background-color: rgb(54, 95, 229);
+    width: 100%;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 30px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+button:hover {
+    background-color: rgb(41, 73, 176);
 }
