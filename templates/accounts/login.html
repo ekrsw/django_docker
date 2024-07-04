@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
+    {% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title></title>
 </head>
 <body>
     {% if form.errors %}
@@ -12,17 +14,24 @@
     {% if user.is_authenticated %}
     <h2>すでにログインしています。</h2>
     {% else %}
-    <form method="post">
-        {% csrf_token %}
-        <h1>ログインページ</h1>
-
-        <label for="Username">User name</label>
-        <input type="text" name="username" id="id_username"><br>
-        <label for="Password">Password</label>
-        <input type="password" name="password" id="id_password"><br>
-
-        <input type="submit" value="ログイン">
-    </form>
+    <div class="formContainer">
+        <form method="post">
+            {% csrf_token %}
+            <h1>ログインフォーム</h1>
+            <hr />
+            <div class="uiForm">
+                <div class="formField">
+                    <label for="username">ユーザー名:</label>
+                    <input type="text" placeholder="ユーザー名" id="username" name="username" />
+                </div>
+                <div class="formField">
+                    <label for="password">パスワード:</label>
+                    <input type="password" placeholder="パスワード" id="password" name="password" />
+                </div>
+                <button class="submitButton">ログイン</button>
+            </div>
+        </form>
+    </div>
     {% endif %}
 </body>
 </html>
