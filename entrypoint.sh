@@ -1,4 +1,11 @@
 #!/bin/sh
-python ./manage.py makemigrations
-python ./manage.py migrate
-python ./manage.py runserver 0.0.0.0:8000
+python ./manage.py makemigrations --noinput
+python ./manage.py migrate --noinput
+python ./manage.py collectstatic --noinput
+
+if [ $DEBUG = "True" ]
+then
+    python ./manage.py runserver 0.0.0.0:8000
+else
+    gunicorn django.wsgi:application 0.0.0.0:8000
+fi
