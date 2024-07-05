@@ -16,9 +16,6 @@ h1 {
 
 .formContainer form {
     background-color: white;
-    width: 70%;
-    max-width: 350px;
-    padding: 30px;
     border-radius: 10px;
     border: 1px solid #dfdfdf;
 }
@@ -28,7 +25,6 @@ h1 {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    height: 250px;
 }
 
 .formField {

@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-    <title></title>
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/login.css' %}">
+    <title>ログイン</title>
 </head>
 <body>
     {% if form.errors %}
@@ -14,9 +15,9 @@
     {% if user.is_authenticated %}
     <h2>すでにログインしています。</h2>
     {% else %}
+    {% csrf_token %}
     <div class="formContainer">
         <form method="post">
-            {% csrf_token %}
             <h1>ログインフォーム</h1>
             <hr />
             <div class="uiForm">
