@@ -38,8 +38,8 @@ services:
       - .env
     command: sh /app/entrypoint.sh
   web:
-    # コンテナ名をwebに指定
-    container_name: nginx-conttainer
+    # コンテナ名をnginx-containerに指定
+    container_name: nginx-container
     # NginxのDockerfileをビルドする
     build:
       # ビルドコンテキストはカレントディレクトリ
