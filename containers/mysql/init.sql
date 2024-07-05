@@ -1,4 +1,4 @@
 -- MYSQL_USERに権限を付与
--- 今回はdjangoというユーザを指定
-GRANT ALL PRIVILEGES ON *.* TO 'eisuke_koresawa'@'%';
+-- 今回はadministratorというユーザを指定
+GRANT ALL PRIVILEGES ON *.* TO 'administrator'@'%';
 FLUSH PRIVILEGES;
