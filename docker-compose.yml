@@ -21,13 +21,14 @@ services:
       # ヘルスチェックが失敗しても無視する時間は60秒
       start_period: 60s
 
-  web:
+  app:
     build:
       context: .
       dockerfile: containers/django/Dockerfile
     container_name: django-container
     volumes:
       - .:/app
+      - ./static:/static
     ports:
       - "8000:8000"
     depends_on:
@@ -36,3 +37,21 @@ services:
     env_file:
       - .env
     command: sh /app/entrypoint.sh
+  web:
+    # コンテナ名をwebに指定
+    container_name: nginx-conttainer
+    # NginxのDockerfileをビルドする
+    build:
+      # ビルドコンテキストはカレントディレクトリ
+      context: .
+      dockerfile: containers/nginx/Dockerfile
+    # ボリュームを指定
+    # ローカルの/staticをコンテナの/staticにマウントする
+    volumes:
+      - ./static:/static
+    # ローカルの80番ボートをコンテナの80番ポートとつなぐ
+    ports:
+      - "80:80"
+    # 先にappを起動してからwebを起動する
+    depends_on:
+      - app
