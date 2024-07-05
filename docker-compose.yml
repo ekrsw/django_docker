@@ -5,6 +5,8 @@ services:
       context: .
       dockerfile: containers/mysql/Dockerfile
     container_name: mysql-container
+    volumes:
+      - db_data:/var/lib/mysql
     restart: always
     ports:
       - "13306:3306"
@@ -55,3 +57,7 @@ services:
     # 先にappを起動してからwebを起動する
     depends_on:
       - app
+
+volumes:
+  db_data:
+  static:

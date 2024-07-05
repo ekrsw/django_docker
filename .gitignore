@@ -2,3 +2,8 @@
 .venv
 
 venv/
+
+# ignore static files
+static/
+# ignore migration files
+migrations/
