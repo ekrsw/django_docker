@@ -1,38 +1,41 @@
-<!DOCTYPE html>
-<html lang="ja">
-    {% load static %}
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'base.css' %}">
-    <link rel="stylesheet" href="{% static 'accounts/css/login.css' %}">
-    <title>ログイン</title>
-</head>
-<body>
-    {% if form.errors %}
+{% extends "base.html" %}
+
+{% block title %}ログイン{% endblock %}
+
+{% block styles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'accounts/css/login.css' %}">
+{% endblock %}
+{% block content %}
+{% if form.errors %}
     <p style="color: red">ユーザー名とパスワードが一致しません。</p>
     {% endif %}
     {% if user.is_authenticated %}
     <h2>すでにログインしています。</h2>
     {% else %}
-    {% csrf_token %}
     <div class="formContainer">
         <form method="post">
+            {% csrf_token %}
             <h1>ログインフォーム</h1>
             <hr />
             <div class="uiForm">
                 <div class="formField">
                     <label for="username">ユーザー名:</label>
-                    <input type="text" placeholder="ユーザー名" id="username" name="username" />
+                    <input type="text" placeholder="ユーザー名" id="username">
                 </div>
                 <div class="formField">
                     <label for="password">パスワード:</label>
-                    <input type="password" placeholder="パスワード" id="password" name="password" />
+                    <input type="password" placeholder="パスワード" id="password">
                 </div>
                 <button class="submitButton">ログイン</button>
             </div>
         </form>
     </div>
     {% endif %}
+{% endblock %}
+
+ 
+<body>
+    
 </body>
 </html>
