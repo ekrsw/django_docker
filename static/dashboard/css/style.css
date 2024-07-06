@@ -1,0 +1,37 @@
+.containerRow {
+    display: flex;
+}
+.box {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    height: 100px;
+    width: 160px;
+    margin: 10px 15px;
+}
+
+.contentField {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    text-align: center;
+}
+.content {
+    width: 100%;
+}
+
+.mainContent, .subContent {
+    margin: 0 0;
+}
+
+.mainContent {
+    font-size: 25px;
+}
+.subContent {
+    font-size: 15px;
+}
+h5 {
+    font-size: 15px;
+    margin: 0 0;
+}
