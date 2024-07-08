@@ -1,5 +1,12 @@
 body{
+    font-family: "Noto Sans JP", sans-serif;
     background-color: #F5F7FD;
+}
+.titleContainer {
+    width: 100%;
+}
+.titleContainer, .timeContainer {
+    display: flex;
 }
 .containerRow {
     display: flex;
@@ -10,7 +17,7 @@ body{
     padding: 10px;
     height: 100px;
     width: 160px;
-    margin: 10px 15px;
+    margin: 8px 8px;
 }
 
 .contentField {
