@@ -10,7 +10,7 @@ services:
     ports:
       - "13306:3306"
     env_file:
-      - .env
+      - .env.prod
     healthcheck:
       test: "mysqladmin ping -h 127.0.0.1 -u$$MYSQL_USER -p$$MYSQL_PASSWORD"
       # ヘルスチェックのインターバルは10秒
@@ -36,8 +36,27 @@ services:
       db:
         condition: service_healthy
     env_file:
-      - .env
+      - .env.prod
     command: sh /app/entrypoint.sh
+  web:
+    # コンテナ名をnginx-containerに指定
+    container_name: nginx-container
+    # NginxのDockerfileをビルドする
+    build:
+      # ビルドコンテキストはカレントディレクトリ
+      context: .
+      dockerfile: containers/nginx/Dockerfile
+    # ボリュームを指定
+    # ローカルの/staticをコンテナの/staticにマウントする
+    volumes:
+      - ./static:/static
+    # ローカルの80番ボートをコンテナの80番ポートとつなぐ
+    ports:
+      - "80:80"
+    # 先にappを起動してからwebを起動する
+    depends_on:
+      - app
+
 volumes:
   db_data:
   static:
