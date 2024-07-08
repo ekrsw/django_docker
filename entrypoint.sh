@@ -1,7 +1,10 @@
 #!/bin/sh
-python ./manage.py makemigrations
-python ./manage.py migrate
-python ./manage.py collectstatic
+
+echo "Starting application in $( [ $DEBUG = "True" ] && echo "development" || echo "production" ) mode"
+
+python ./manage.py makemigrations --noinput
+python ./manage.py migrate --noinput
+python ./manage.py collectstatic --noinput
 
 if [ $DEBUG = "True" ]
 then
