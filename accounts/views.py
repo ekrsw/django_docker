@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import CreateView, TemplateView
+from django.views.generic.edit import UpdateView
 from django.urls import reverse_lazy
 
 from .forms import CustomUserCreationForm

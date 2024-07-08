@@ -8,6 +8,27 @@ body{
 .titleContainer, .timeContainer {
     display: flex;
 }
+
+.timeBox{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(204, 219, 219);
+    padding: 5px;
+    height: 50px;
+    width: 100px;
+    margin: 8px 3px;
+    border-radius: 5px;
+}
+.timeBox h5 {
+    color: #193A95;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0;
+}
+.timeContent {
+    text-align: center;
+}
+
 .containerRow {
     display: flex;
 }
@@ -41,7 +62,7 @@ body{
 .subContent {
     font-size: 15px;
 }
-h5 {
+.box h5 {
     color: #193A95;
     font-size: 15px;
     font-weight: 600;
