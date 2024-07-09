@@ -1,18 +1,26 @@
-body{
-    font-family: "Noto Sans JP", sans-serif;
-    background-color: #F5F7FD;
-}
-.titleContainer {
+.itemContainer, .titleContainer {
     width: 100%;
+    align-items: center;
+    background-color: white;
+    max-width: 800px;
+    border-radius: 10px;
+    margin: 5px 0;
+}
+.titleContainer h1 {
+    width: 25%;
 }
 .titleContainer, .timeContainer {
     display: flex;
 }
-
+.timeContainer {
+    width: 75%;
+    justify-content: flex-end;
+    padding-right: 10px;
+}
 .timeBox{
     display: flex;
     flex-direction: column;
-    background-color: rgb(204, 219, 219);
+    background-color: #f0f0f0;
     padding: 5px;
     height: 50px;
     width: 100px;
@@ -20,10 +28,12 @@ body{
     border-radius: 5px;
 }
 .timeBox h5 {
-    color: #193A95;
     font-size: 15px;
     font-weight: 600;
     margin: 0 0;
+}
+.timeBox h5, .titleContainer h1 {
+    color: #193A95;
 }
 .timeContent {
     text-align: center;
@@ -31,6 +41,7 @@ body{
 
 .containerRow {
     display: flex;
+    justify-content: center;
 }
 .box {
     display: flex;
